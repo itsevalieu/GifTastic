@@ -2,24 +2,35 @@ html,body{
 	height: 100%;
 }
 .header{
-	background: lightblue;
+	background: #337ab7;
+	margin-bottom: 2em;
+	border-bottom: 1px solid grey;
 }
 .page-header{
 	text-indent: 2em;
 }
+.title{
+	font-weight: bold;
+	font-size: 3em;
+	color: white;
+}
+p{
+	font-weight:bold;
+}
 .container{
 	min-height: 100%;
 	margin: 0 auto -100px;
-	background: silver;
+	background: lightgrey;
+	border: 1px solid grey;
+	border-top: none;
 }
 .wrap:after{
 	content: "";
 	height: 100px;
 }
-footer{
-	width: 100%;
+
+.push{
 	height: 100px;
-	text-align: center;
 }
 .pull-left{
 	float: left !important;
