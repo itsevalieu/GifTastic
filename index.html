@@ -47,13 +47,14 @@ $("#addAnimal").on("click", function(){
 
 function displayAnimalGifs(){
 	var animalName = $(this).data("name");
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animalName + "&limit=5&api_key=dc6zaTOxFJmzC";
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animalName + "&limit=10&api_key=dc6zaTOxFJmzC";
 	$.ajax({url: queryURL,
 			method: "GET"})
 	.done(function(response){
 		console.log(response);
 		
 		var results = response.data;
+		var animalInfo = $("<div>").();
 		for(var a=0; a< results.length; a++){
 			var p = $("<p>").text("Rating: "+ results[a].rating);
 			var img = $("<img>");
@@ -64,8 +65,6 @@ function displayAnimalGifs(){
 			img.attr("data-state", "still");
 			img.addClass("gif");
 
-			var animalInfo = $("<div>");
-
 			animalInfo.append(p);
 			animalInfo.append(img);
 			$("#animals").prepend(animalInfo);
@@ -74,9 +73,7 @@ function displayAnimalGifs(){
 	console.log(queryURL);
 }
 
-$(document).on("click", ".animal", displayAnimalGifs);
-
-$(".gif").on("click", function(){
+function pause(){
 	var state = $(this).attr("data-state");
 	if(state === "still"){
 		$(this).attr("src", $(this).attr("data-animate"));
@@ -85,8 +82,11 @@ $(".gif").on("click", function(){
 		$(this).attr("src", $(this).attr("data-still"));
 		$(this).attr("data-state", "still");
 	}
+}
 
-});
+
+$(document).on("click", ".animal", displayAnimalGifs);
+$(document).on("click", ".gif", pause);
 
 </script>
 </body>
