@@ -54,8 +54,9 @@ function displayAnimalGifs(){
 		console.log(response);
 		
 		var results = response.data;
-		var animalInfo = $("<div>").();
+		$("#animals").empty();
 		for(var a=0; a< results.length; a++){
+			
 			var p = $("<p>").text("Rating: "+ results[a].rating);
 			var img = $("<img>");
 			img.attr("src", results[a].images.fixed_height_still.url);
@@ -65,6 +66,7 @@ function displayAnimalGifs(){
 			img.attr("data-state", "still");
 			img.addClass("gif");
 
+			var animalInfo = $("<div>");
 			animalInfo.append(p);
 			animalInfo.append(img);
 			$("#animals").prepend(animalInfo);
