@@ -5,7 +5,7 @@ var animalArray = [];
 function renderButtons(){
 	$("#animalButtons").empty();
 	for(var i=0; i<animalArray.length; i++){
-		var b = $("<button>"); //creating button div
+		var b = $("<button class='btn btn-primary input-sm'>"); //creating button div
 		b.addClass("animal"); //assign class 'animal' to button
 		b.attr("data-name", animalArray[i]); //assign attr data-name with animal names from array
 		b.text(animalArray[i]);//display animal name in each button
@@ -33,7 +33,7 @@ function displayAnimalGifs(){
 			img.attr("data-state", "still");
 			img.addClass("gif");
 			//Display to new div, prepend to #animals in html
-			var animalInfo = $("<div>");
+			var animalInfo = $("<div class='pull-left'>");
 			animalInfo.append(p);
 			animalInfo.append(img);
 			$("#animals").prepend(animalInfo);
