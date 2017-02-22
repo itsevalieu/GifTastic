@@ -22,6 +22,7 @@ function displayAnimalGifs(){
 		$("#animals").empty();
 
 		for(var a=0; a< results.length; a++){
+			var r = Math.floor(Math.random*100)
 			//Rating
 			var p = $("<p>").text("Rating: "+ results[a].rating);
 			//Gif Images
